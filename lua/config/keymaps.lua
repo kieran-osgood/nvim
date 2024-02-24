@@ -1,3 +1,17 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+
+vim.keymap.set("n", "<C-n>", function()
+  vim.diagnostic.goto_next()
+end)
+
+vim.keymap.set("n", "<C-N>", function()
+  vim.diagnostic.goto_prev()
+end)
+
+vim.keymap.set("n", ">", ">>")
+vim.keymap.set("n", "<", "<<")
+
+vim.keymap.set("n", "<leader>q", ":q")
+vim.keymap.set("n", "<leader>w", "<C-s>")
