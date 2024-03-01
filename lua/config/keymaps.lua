@@ -1,13 +1,8 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
-vim.keymap.set("n", "<C-n>", function()
-  vim.diagnostic.goto_next()
-end)
-
-vim.keymap.set("n", "<C-N>", function()
-  vim.diagnostic.goto_prev()
-end)
+vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<C-N>", vim.diagnostic.goto_prev)
 
 vim.keymap.set("n", ">", ">>")
 vim.keymap.set("n", "<", "<<")
@@ -18,9 +13,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- vim.keymap.set("n", "<leader>q", ":q")
 -- vim.keymap.set("n", "<leader>w", "<C-s>")
 
-vim.keymap.set("n", "gh", function()
-  vim.lsp.buf.hover()
-end, { desc = "Hover" })
+vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- Search and replace current position word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
