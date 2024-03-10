@@ -1,6 +1,6 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.symbols-outline",
+    "lazyvim.plugins.extras.editor.outline",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.linting.eslint",
@@ -9,5 +9,5 @@
   "news": {
     "NEWS.md": "2123"
   },
-  "version": 2
+  "version": 3
 }

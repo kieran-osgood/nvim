@@ -50,6 +50,7 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
+        { name = "codeium" },
       }, {
         { name = "buffer" },
       }),
@@ -62,11 +63,7 @@ return {
           return item
         end,
       },
-      experimental = {
-        ghost_text = {
-          hl_group = "CmpGhostText",
-        },
-      },
+      experimental = { ghost_text = { hl_group = "CmpGhostText" } },
       sorting = defaults.sorting,
     }
   end,
