@@ -1,6 +1,6 @@
 return {
   "mg979/vim-visual-multi",
-  lazy = false,
+  -- lazy = false,
   -- branch = "master",
   -- init = function()
   --   vim.g.VM_maps = {

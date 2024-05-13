@@ -1,8 +1,8 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
-vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<C-N>", vim.diagnostic.goto_prev)
+-- vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next, { desc = "Go to Next" })
+-- vim.keymap.set("n", "<C-N>", vim.diagnostic.goto_prev, { desc = "Go to Previous" })
 
 vim.keymap.set("n", ">", ">>")
 vim.keymap.set("n", "<", "<<")
