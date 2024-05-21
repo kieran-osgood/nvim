@@ -1,8 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = function()
-    local icons = require("lazyvim.config").icons
-    local Util = require("lazyvim.util")
+    -- local icons = require("lazyvim.config").icons
+    -- local Util = require("lazyvim.util")
 
     return {
       options = {

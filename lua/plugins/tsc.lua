@@ -5,7 +5,7 @@ return {
     use_trouble_qflist = true,
     auto_start_watch_mode = false,
     flags = {
-      watch = true,
+      watch = false,
     },
   },
 }
