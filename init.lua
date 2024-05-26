@@ -3,11 +3,8 @@ require("config.lazy")
 
 vim.o.shell = "/bin/zsh"
 
-vim.filetype.add({
-  extension = {
-    mdx = "mdx",
-  },
-})
+-- MDX files will use the Markdown parser and queries.
+vim.filetype.add({ extension = { mdx = "mdx" } })
+vim.treesitter.language.register("markdown", "mdx")
 
-vim.treesitter.language.register("markdown", "mdx") -- the mdx filetype will use the markdown parser and queries.
 vim.o.cmdheight = 1

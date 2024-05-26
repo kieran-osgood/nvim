@@ -3,11 +3,7 @@ return {
   opts = {
     strict = true,
     override_by_extension = {
-      ["astro"] = {
-        icon = "",
-        color = "#EF8547",
-        name = "Astro",
-      },
+      ["astro"] = { icon = "", color = "#EF8547", name = "Astro" },
     },
   },
 }
