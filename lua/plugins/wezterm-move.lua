@@ -1,5 +1,4 @@
 return {
-
   "letieu/wezterm-move.nvim",
   keys = { -- Lazy loading, don't need call setup() function
     {

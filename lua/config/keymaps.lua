@@ -13,7 +13,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- vim.keymap.set("n", "<leader>q", ":q")
 -- vim.keymap.set("n", "<leader>w", "<C-s>")
 
-vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover" })
+-- vim.keymap.set("n", "gh", vim.lsp.buf.hover, { desc = "Hover" })
 
 -- Search and replace current position word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
