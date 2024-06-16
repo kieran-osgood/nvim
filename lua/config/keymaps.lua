@@ -15,3 +15,11 @@ vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
 
 -- Twilight
 vim.keymap.set("n", "<leader>tt", "<cmd>Twilight<CR>", { desc = "Toggle Twilight" })
+
+-- local ls = require("luasnip")
+-- vim.keymap.set({ "i", "s" }, "<C-H>", function()
+--   ls.jump(1)
+-- end, { silent = true })
+-- vim.keymap.set({ "i", "s" }, "<C-J>", function()
+--   ls.jump(-1)
+-- end, { silent = true })

@@ -2,6 +2,15 @@ return {
   "pmizio/typescript-tools.nvim",
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   opts = {
+    -- settings = {
+    --   vtsls = {
+    --     experimental = {
+    --       completion = {
+    --         enableServerSideFuzzyMatch = true,
+    --       },
+    --     },
+    --   },
+    -- },
     complete_function_calls = true,
     disable_member_code_lens = false,
     expose_as_code_action = "all",
