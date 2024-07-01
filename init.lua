@@ -16,3 +16,9 @@ vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "white", bold = true })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#51B3EC", bold = true })
 vim.o.pumheight = 100
+-- vim.api.nvim_exec(
+--   [[
+-- let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+-- ]],
+--   false
+-- )
