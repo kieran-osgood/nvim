@@ -9,7 +9,8 @@ vim.treesitter.language.register("markdown", "mdx")
 
 vim.o.cmdheight = 1
 
-require("telescope").load_extension("git_worktree")
+-- require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("worktrees")
 
 -- Sets colors to line numbers Above, Current and Below  in this order
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
