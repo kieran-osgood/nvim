@@ -1,13 +1,26 @@
 return {
   {
-
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      -- ...
+    end,
+  },
+  {
     "saifulapm/neotree-file-nesting-config",
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       "3rd/image.nvim",
     },
@@ -17,14 +30,23 @@ return {
       require("neo-tree").setup(opts)
     end,
     opts = {
-      hide_root_node = true,
+      -- hide_root_node = true,
       retain_hidden_root_indent = true,
 
       default_component_configs = {
         indent = {
-          with_expanders = true,
+          indent_size = 2,
+          padding = 1, -- extra padding on left hand side
+          -- indent guides
+          with_markers = true,
+          indent_marker = "│",
+          last_indent_marker = "└",
+          highlight = "NeoTreeIndentMarker",
+          -- expander config, needed for nesting files
+          with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
           expander_collapsed = "",
           expander_expanded = "",
+          expander_highlight = "NeoTreeExpander",
         },
       },
       commands = {
@@ -70,8 +92,7 @@ return {
       },
       filesystem = {
         filtered_items = {
-          show_hidden_count = false,
-          -- show_hidden_count = true,
+          show_hidden_count = true,
           hide_dotfiles = false,
           hide_gitignored = false,
           hide_by_name = {
@@ -91,10 +112,18 @@ return {
           },
         },
       },
-    },
-    window = {
-      mappings = {
-        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+      window = {
+        mapping_options = {
+          noremap = true,
+          nowait = true,
+        },
+        mappings = {
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+          ["<space>"] = {
+            "toggle_node",
+            nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+          },
+        },
       },
     },
   },
