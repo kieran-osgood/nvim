@@ -1,5 +1,5 @@
 return {
-  "dmmulroy/tsc.nvim",
+  "https://github.com/dmmulroy/tsc.nvim",
   opts = {
     bin_path = vim.fn.findfile("node_modules/.bin/tsc"),
     use_trouble_qflist = true,

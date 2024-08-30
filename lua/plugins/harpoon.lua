@@ -1,6 +1,5 @@
 return {
   -- {
-  --
   --   "ThePrimeagen/harpoon",
   --   branch = "harpoon2",
   --   dependencies = { "nvim-lua/plenary.nvim" },
@@ -16,7 +15,7 @@ return {
   --       harpoon:list():add()
   --     end, { desc = "Add to Harpoon" })
   --
-  --     vim.keymap.set("n", "<M-e>", function()
+  --     vim.keymap.set("n", ";", function()
   --       harpoon.ui:toggle_quick_menu(harpoon:list())
   --     end, { desc = "(Harpoon) Toggle Quick Menu" })
   --
@@ -70,11 +69,14 @@ return {
   --     end, { desc = "(Harpoon) Open in Telescope" })
   --   end,
   -- },
+
   {
     "otavioschwanck/arrow.nvim",
     opts = {
       show_icons = true,
       buffer_leader_key = "m", -- Per Buffer Mappings
+      separate_by_branch = true, -- Bookmarks will be separated by git branch
+      save_key = "cwd", -- what will be used as root to save the bookmarks. Can be also `git_root`.
     },
   },
 }
