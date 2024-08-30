@@ -34,3 +34,9 @@ vim.keymap.set(
   "<cmd>Telescope git_files recurse_submodules=true<CR>",
   { desc = "Find Files (git files recursive)" }
 )
+
+vim.keymap.set("i", "<Tab><Tab>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
