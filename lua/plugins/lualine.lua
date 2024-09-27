@@ -1,3 +1,33 @@
+---@function Function to render the MultiCursor statusline
+---@return table status The MultiCursor status object
+local function mc_statusline()
+  local mc = require("multicursor-nvim")
+  local status = {}
+  if mc.hasCursors() then
+    status.enabled = true
+    if vim.fn.mode() == "v" then
+      status.icon = "󰚕 "
+      status.short_text = "V"
+      status.text = "VISUAL"
+      status.color = "lualine_a_visual"
+    else
+      status.icon = "󰬸 "
+      status.short_text = "N"
+      status.text = "NORMAL"
+      status.color = "lualine_a_normal"
+    end
+  else
+    status.enabled = false
+    status.icon = "󰘪 "
+    status.short_text = "NO"
+    status.text = "SINGLE"
+    status.color = "lualine_a_normal"
+  end
+  status.icon_short_text = status.icon .. status.short_text
+  status.icon_text = status.icon .. status.text
+  return status
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   opts = function()
@@ -16,7 +46,7 @@ return {
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = false,
+        globalstatus = true,
         refresh = {
           statusline = 1000,
           tabline = 1000,
@@ -34,6 +64,19 @@ return {
               bg = "#b4befe",
             },
           },
+          { -- MultiCursors
+            function()
+              return mc_statusline().icon
+            end,
+            cond = function()
+              return mc_statusline().enabled
+            end,
+            color = function()
+              return mc_statusline().color
+            end,
+            padding = { left = 0, right = 0 },
+            separator = { left = "", right = "" },
+          },
         },
         lualine_b = {
           {
@@ -45,14 +88,14 @@ return {
               bg = "#7d83ac",
             },
           },
-          {
-            "diff",
-            separator = { left = "", right = "" },
-            color = {
-              fg = "#1c1d21",
-              bg = "#7d83ac",
-            },
-          },
+          -- {
+          --   "diff",
+          --   separator = { left = "", right = "" },
+          --   color = {
+          --     fg = "#1c1d21",
+          --     bg = "#7d83ac",
+          --   },
+          -- },
         },
         lualine_c = {
           {
@@ -62,12 +105,18 @@ return {
               bg = "#45475a",
             },
           },
-          {
-            "filename",
-          },
+          -- {
+          --   "filename",
+          -- },
         },
-        lualine_x = { "filesize" },
+        -- lualine_x = { "filesize" },
         lualine_y = {
+          {
+            "searchcount",
+            maxcount = 999,
+            timeout = 500,
+          },
+
           {
             "filetype",
             icons_enabled = false,
@@ -78,27 +127,41 @@ return {
           },
         },
         lualine_z = {
-          {
-            "location",
-            icon = "",
-            color = {
-              fg = "#1c1d21",
-              bg = "#f2cdcd",
-            },
-          },
+          -- {
+          --   "location",
+          --   icon = "",
+          --   color = {
+          --     fg = "#1c1d21",
+          --     bg = "#f2cdcd",
+          --   },
+          -- },
         },
       },
       inactive_sections = {
+        -- lualine_a = {},
+        -- lualine_b = {},
+        -- lualine_c = { "filename" },
+        -- lualine_x = {},
+        -- lualine_y = {},
+        -- lualine_z = {},
+      },
+      tabline = {},
+      winbar = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
       },
-      tabline = {},
-      winbar = {},
-      inactive_winbar = {},
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { "filename" },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
       extensions = { "neo-tree", "lazy" },
     }
   end,
