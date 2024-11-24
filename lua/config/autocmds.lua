@@ -6,3 +6,13 @@
 --   pattern = "*.ts*",
 --   command = ":TSToolsRemoveUnusedImports sync",
 -- })
+
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   pattern = { "*.py", "*.lua" },
+--   callback = require("zen-mode").open,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufLeave" }, {
+--   pattern = { "*.py", "*.lua" },
+--   callback = require("zen-mode").close,
+-- })

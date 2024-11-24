@@ -8,10 +8,15 @@ vim.keymap.set("n", "<", "<<")
 -- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Search and replace current position word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set(
+  "n",
+  "<leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Search and replace under cursor" }
+)
 
 -- Undotree
-vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle, { desc = "Toggle UndoTree" })
 
 -- Twilight
 vim.keymap.set("n", "<leader>tW", "<cmd>Twilight<CR>", { desc = "Toggle Twilight" })
@@ -38,5 +43,11 @@ vim.keymap.set(
 vim.keymap.set("i", "<Tab><Tab>", 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
+  desc = "Copilot Accept",
 })
 vim.g.copilot_no_tab_map = true
+--
+-- vim.keymap.set("n", "<leader>e", function()
+--   require("zen-mode").toggle()
+--   vim.cmd("Neotree toggle")
+-- end, { desc = "Toggle Neotree" })
