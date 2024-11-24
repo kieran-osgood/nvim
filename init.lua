@@ -6,7 +6,11 @@ vim.o.shell = "/bin/zsh"
 -- MDX files will use the Markdown parser and queries.
 vim.filetype.add({ extension = { mdx = "mdx" } })
 vim.treesitter.language.register("markdown", "mdx")
-
+-- require("nvim-treesitter.configs").setup({
+--   ensure_installed = {
+--     "astro",
+--   },
+-- })
 vim.o.cmdheight = 1
 
 -- Sets colors to line numbers Above, Current and Below  in this order
