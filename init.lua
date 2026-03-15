@@ -18,6 +18,19 @@ vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "white", bold = true })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#51B3EC", bold = true })
 vim.o.pumheight = 100
+vim.o.foldmethod = "expr"
+-- Default to treesitter folding
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- Prefer LSP folding if client supports it
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method("textDocument/foldingRange") then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+  end,
+})
 -- vim.api.nvim_exec(
 --   [[
 -- let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
@@ -54,19 +67,19 @@ vim.o.pumheight = 100
 --   },
 -- }
 
-require("telescope").setup({
-  defaults = {
-    file_ignore_patterns = {
-      "node_modules",
-      "Alfred.alfredpreferences",
-    },
-    pickers = {
-      git_files = { recurse_submodules = false },
-    },
-  },
-})
+-- require("telescope").setup({
+--   defaults = {
+--     file_ignore_patterns = {
+--       "node_modules",
+--       "Alfred.alfredpreferences",
+--     },
+--     pickers = {
+--       git_files = { recurse_submodules = false },
+--     },
+--   },
+-- })
 
-require("telescope").load_extension("worktrees")
+-- require("telescope").load_extension("worktrees")
 
 require("mini.cursorword").setup({
   delay = 20,
